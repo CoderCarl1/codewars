@@ -14,7 +14,6 @@
 
 def valid_parentheses(string)
     arr = string.scan(/\(|\)/) #Scan to put the result of REGEX to check for ONLY ( or )
-    return true if arr.length == 0 # challege requires true if no Parenthesis at all
 
     arr_sort = arr.group_by(&:itself).each_with_object({}){ |(k,v), hash| hash[k] = v.size} # return the number of each ( and ) inside a hash
     equal_check = arr_sort["("] == arr_sort[")"] ? true : false #checks that the values are equal to each other
